@@ -1,0 +1,7 @@
+*.pyc
+*.py~
+*.aux
+*.aux~
+*.log
+venv/
+

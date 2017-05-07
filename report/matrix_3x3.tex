@@ -1,0 +1,28 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+
+\begin{document}
+\title{Matrices combinadas}
+\maketitle
+
+\section*{Matriz simetrica de orden 3}
+
+$$\left[\begin{matrix}a_{11} & a_{12} & a_{13}\\a_{12} & a_{22} & a_{23}\\a_{13} & a_{23} & a_{33}\end{matrix}\right]$$
+
+\section*{Matriz congruente}
+
+$$\left[\begin{matrix}1 & \frac{a_{12}}{\sqrt{a_{11}} \sqrt{a_{22}}} & \frac{a_{13}}{\sqrt{a_{11}} \sqrt{a_{33}}}\\\frac{a_{12}}{\sqrt{a_{11}} \sqrt{a_{22}}} & 1 & \frac{a_{23}}{\sqrt{a_{22}} \sqrt{a_{33}}}\\\frac{a_{13}}{\sqrt{a_{11}} \sqrt{a_{33}}} & \frac{a_{23}}{\sqrt{a_{22}} \sqrt{a_{33}}} & 1\end{matrix}\right]$$
+
+\section*{Submatrices de orden 2}
+
+$$\left[\begin{matrix}a_{11} & a_{12}\\a_{12} & a_{22}\end{matrix}\right]\hspace{2cm} a_{11} a_{22} - a_{12}^{2}$$   
+$$\left[\begin{matrix}a_{11} & a_{13}\\a_{12} & a_{23}\end{matrix}\right]\hspace{2cm} a_{11} a_{23} - a_{12} a_{13}$$   
+$$\left[\begin{matrix}a_{12} & a_{13}\\a_{22} & a_{23}\end{matrix}\right]\hspace{2cm} a_{12} a_{23} - a_{13} a_{22}$$   
+$$\left[\begin{matrix}a_{11} & a_{12}\\a_{13} & a_{23}\end{matrix}\right]\hspace{2cm} a_{11} a_{23} - a_{12} a_{13}$$   
+$$\left[\begin{matrix}a_{11} & a_{13}\\a_{13} & a_{33}\end{matrix}\right]\hspace{2cm} a_{11} a_{33} - a_{13}^{2}$$   
+$$\left[\begin{matrix}a_{12} & a_{13}\\a_{23} & a_{33}\end{matrix}\right]\hspace{2cm} a_{12} a_{33} - a_{13} a_{23}$$   
+$$\left[\begin{matrix}a_{12} & a_{22}\\a_{13} & a_{23}\end{matrix}\right]\hspace{2cm} a_{12} a_{23} - a_{13} a_{22}$$   
+$$\left[\begin{matrix}a_{12} & a_{23}\\a_{13} & a_{33}\end{matrix}\right]\hspace{2cm} a_{12} a_{33} - a_{13} a_{23}$$   
+$$\left[\begin{matrix}a_{22} & a_{23}\\a_{23} & a_{33}\end{matrix}\right]\hspace{2cm} a_{22} a_{33} - a_{23}^{2}$$
+
+\end{document}

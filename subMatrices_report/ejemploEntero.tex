@@ -1,0 +1,391 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\setlist[enumerate]{label*=\arabic*.}
+
+\begin{document}
+\title{Ejemplo de matriz simetrica totalmente positivas de orden 4 con entradas enteras}
+\maketitle
+
+
+\begin{enumerate}
+
+\item $\left[\begin{matrix}1 & 1 & 1 & 1\\1 & 2 & 3 & 4\\1 & 3 & 6 & 10\\1 & 4 & 10 & 20\end{matrix}\right]$\\
+
+\begin{enumerate}
+
+\item {\bf Submatrices de orden 1}\\
+
+\begin{enumerate}
+
+
+\item $\displaystyle \left[\begin{matrix}1\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}2\end{matrix}\right]$\\
+
+Det: $2$\\
+
+
+\item $\displaystyle \left[\begin{matrix}3\end{matrix}\right]$\\
+
+Det: $3$\\
+
+
+\item $\displaystyle \left[\begin{matrix}4\end{matrix}\right]$\\
+
+Det: $4$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}3\end{matrix}\right]$\\
+
+Det: $3$\\
+
+
+\item $\displaystyle \left[\begin{matrix}6\end{matrix}\right]$\\
+
+Det: $6$\\
+
+
+\item $\displaystyle \left[\begin{matrix}10\end{matrix}\right]$\\
+
+Det: $10$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}4\end{matrix}\right]$\\
+
+Det: $4$\\
+
+
+\item $\displaystyle \left[\begin{matrix}10\end{matrix}\right]$\\
+
+Det: $10$\\
+
+
+\item $\displaystyle \left[\begin{matrix}20\end{matrix}\right]$\\
+
+Det: $20$\\
+
+\end{enumerate}
+
+\item {\bf Submatrices de orden 2}\\
+
+\begin{enumerate}
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\1 & 2\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\1 & 3\end{matrix}\right]$\\
+
+Det: $2$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\1 & 4\end{matrix}\right]$\\
+
+Det: $3$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\2 & 3\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\2 & 4\end{matrix}\right]$\\
+
+Det: $2$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\3 & 4\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\1 & 3\end{matrix}\right]$\\
+
+Det: $2$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\1 & 6\end{matrix}\right]$\\
+
+Det: $5$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\1 & 10\end{matrix}\right]$\\
+
+Det: $9$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\3 & 6\end{matrix}\right]$\\
+
+Det: $3$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\3 & 10\end{matrix}\right]$\\
+
+Det: $7$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\6 & 10\end{matrix}\right]$\\
+
+Det: $4$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\1 & 4\end{matrix}\right]$\\
+
+Det: $3$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\1 & 10\end{matrix}\right]$\\
+
+Det: $9$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\1 & 20\end{matrix}\right]$\\
+
+Det: $19$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\4 & 10\end{matrix}\right]$\\
+
+Det: $6$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\4 & 20\end{matrix}\right]$\\
+
+Det: $16$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1\\10 & 20\end{matrix}\right]$\\
+
+Det: $10$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 2\\1 & 3\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 3\\1 & 6\end{matrix}\right]$\\
+
+Det: $3$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 4\\1 & 10\end{matrix}\right]$\\
+
+Det: $6$\\
+
+
+\item $\displaystyle \left[\begin{matrix}2 & 3\\3 & 6\end{matrix}\right]$\\
+
+Det: $3$\\
+
+
+\item $\displaystyle \left[\begin{matrix}2 & 4\\3 & 10\end{matrix}\right]$\\
+
+Det: $8$\\
+
+
+\item $\displaystyle \left[\begin{matrix}3 & 4\\6 & 10\end{matrix}\right]$\\
+
+Det: $6$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 2\\1 & 4\end{matrix}\right]$\\
+
+Det: $2$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 3\\1 & 10\end{matrix}\right]$\\
+
+Det: $7$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 4\\1 & 20\end{matrix}\right]$\\
+
+Det: $16$\\
+
+
+\item $\displaystyle \left[\begin{matrix}2 & 3\\4 & 10\end{matrix}\right]$\\
+
+Det: $8$\\
+
+
+\item $\displaystyle \left[\begin{matrix}2 & 4\\4 & 20\end{matrix}\right]$\\
+
+Det: $24$\\
+
+
+\item $\displaystyle \left[\begin{matrix}3 & 4\\10 & 20\end{matrix}\right]$\\
+
+Det: $20$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 3\\1 & 4\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 6\\1 & 10\end{matrix}\right]$\\
+
+Det: $4$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 10\\1 & 20\end{matrix}\right]$\\
+
+Det: $10$\\
+
+
+\item $\displaystyle \left[\begin{matrix}3 & 6\\4 & 10\end{matrix}\right]$\\
+
+Det: $6$\\
+
+
+\item $\displaystyle \left[\begin{matrix}3 & 10\\4 & 20\end{matrix}\right]$\\
+
+Det: $20$\\
+
+
+\item $\displaystyle \left[\begin{matrix}6 & 10\\10 & 20\end{matrix}\right]$\\
+
+Det: $20$\\
+
+\end{enumerate}
+
+\item {\bf Submatrices de orden 3}\\
+
+\begin{enumerate}
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1 & 1\\1 & 2 & 3\\1 & 3 & 6\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1 & 1\\1 & 2 & 4\\1 & 3 & 10\end{matrix}\right]$\\
+
+Det: $3$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1 & 1\\1 & 3 & 4\\1 & 6 & 10\end{matrix}\right]$\\
+
+Det: $3$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1 & 1\\2 & 3 & 4\\3 & 6 & 10\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1 & 1\\1 & 2 & 3\\1 & 4 & 10\end{matrix}\right]$\\
+
+Det: $3$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1 & 1\\1 & 2 & 4\\1 & 4 & 20\end{matrix}\right]$\\
+
+Det: $10$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1 & 1\\1 & 3 & 4\\1 & 10 & 20\end{matrix}\right]$\\
+
+Det: $11$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1 & 1\\2 & 3 & 4\\4 & 10 & 20\end{matrix}\right]$\\
+
+Det: $4$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1 & 1\\1 & 3 & 6\\1 & 4 & 10\end{matrix}\right]$\\
+
+Det: $3$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1 & 1\\1 & 3 & 10\\1 & 4 & 20\end{matrix}\right]$\\
+
+Det: $11$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1 & 1\\1 & 6 & 10\\1 & 10 & 20\end{matrix}\right]$\\
+
+Det: $14$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1 & 1\\3 & 6 & 10\\4 & 10 & 20\end{matrix}\right]$\\
+
+Det: $6$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 2 & 3\\1 & 3 & 6\\1 & 4 & 10\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 2 & 4\\1 & 3 & 10\\1 & 4 & 20\end{matrix}\right]$\\
+
+Det: $4$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 3 & 4\\1 & 6 & 10\\1 & 10 & 20\end{matrix}\right]$\\
+
+Det: $6$\\
+
+
+\item $\displaystyle \left[\begin{matrix}2 & 3 & 4\\3 & 6 & 10\\4 & 10 & 20\end{matrix}\right]$\\
+
+Det: $4$\\
+
+\end{enumerate}
+
+\item {\bf Submatrices de orden 4}\\
+
+\begin{enumerate}
+
+
+\item $\displaystyle \left[\begin{matrix}1 & 1 & 1 & 1\\1 & 2 & 3 & 4\\1 & 3 & 6 & 10\\1 & 4 & 10 & 20\end{matrix}\right]$\\
+
+Det: $1$\\
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{enumerate}
+\end{document}

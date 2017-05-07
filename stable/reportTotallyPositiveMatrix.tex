@@ -1,0 +1,33 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\setlist[enumerate]{label*=\arabic*.}
+
+\begin{document}
+\title{Ejemplo de matriz simetrica totalmente positivas de orden {{matrix_orden}} con entradas enteras}
+\maketitle
+
+
+\begin{enumerate}
+{% for matriz in matrix %}
+\item ${{matriz.matriz}}$\\
+
+\begin{enumerate}
+{% for section in matriz.submatrices %}
+\item {\bf Submatrices de orden {{section.orden}}}\\
+
+\begin{enumerate}
+{% for m in section.sub %}
+
+\item $\displaystyle {{m.matriz}}$\\
+
+Det: ${{m.det}}$\\
+{% endfor %}
+\end{enumerate}
+{% endfor %}
+\end{enumerate}
+
+{% endfor %}
+\end{enumerate}
+\end{document}
