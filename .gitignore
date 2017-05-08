@@ -3,5 +3,7 @@
 *.aux
 *.aux~
 *.log
+*.vscode
+*.DS_Store
 venv/
 
