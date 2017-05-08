@@ -4,7 +4,7 @@ import math
 
 class Matrix(sympy.Matrix):
     """
-        Clase heredada de scipi.matrix la cual permite realizar las tareas tales como:
+        Clase heredada de sympy.Matrix la cual permite realizar las tareas tales como:
         1) Generar matrices simetricas
         2) Generar submatrices
         3) Determinar si una matriz es totalmente positiva
@@ -52,5 +52,21 @@ class Matrix(sympy.Matrix):
         """
             Devuelve una matriz congruente a esta matriz con entradas en la
             diagonal principal iguales a 1
+        """
+        auxMatrix = self.matrix.tolist()
+        dim = len(auxMatrix)
+
+        for i in range(dim):
+            for c in range(dim):
+                auxMatrix[i][c] *= 1/sympy.sqrt(self.matrix.row(i)[i])
+            for r in range(dim):
+                auxMatrix[r][i] *= 1/sympy.sqrt(self.matrix.row(i)[i])
+
+        return Matrix(auxMatrix)
+
+    def get_submatrices(self, orden, squared=True):
+        """
+            Obtiene las submatrices del orden especificado. Por defecto
+            devuelve las submatrices cuadradas
         """
         pass
