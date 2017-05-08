@@ -1,6 +1,7 @@
 import sympy
 import random
 import math
+import itertools as it
 
 class Matrix(sympy.Matrix):
     """
@@ -64,9 +65,32 @@ class Matrix(sympy.Matrix):
 
         return Matrix(auxMatrix)
 
-    def get_submatrices(self, orden, squared=True):
+    def get_submatrices(self, rows, cols):
         """
-            Obtiene las submatrices del orden especificado. Por defecto
-            devuelve las submatrices cuadradas
+            Obtiene las submatrices del orden especificado
         """
-        pass
+        I = list(it.combinations(range(self.matrix.rows), rows))
+        J = list(it.combinations(range(self.matrix.cols), cols))
+
+        indexes = list(it.product(I, J))
+
+        subMatrices = []
+        subMatriz_aux = []
+        row = []
+
+        for pair in indexes:
+            for r in pair[0]:
+                for c in pair[1]:
+                    row.append(self.matrix.row(r)[c])
+                subMatriz_aux.append(list(row))
+                del row[:]
+            subMatrices.append(Matrix(list(subMatriz_aux)))
+            del subMatriz_aux[:]
+        return subMatrices
+
+    def combined_matrix(self):
+        """
+            Devuelve la matriz combinada de la matriz dada 
+        """
+        aux = self.matrix.inv()
+        return Matrix.multiply_elementwise(Matrix(self.matrix), Matrix(aux.trasponse()))
