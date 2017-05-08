@@ -1,8 +1,8 @@
-import scipy
+import sympy
 import random
 import math
 
-class Matrix(scipy.matrix):
+class Matrix(sympy.Matrix):
     """
         Clase heredada de scipi.matrix la cual permite realizar las tareas tales como:
         1) Generar matrices simetricas
@@ -12,6 +12,11 @@ class Matrix(scipy.matrix):
         5) Generar una matriz totalmente positiva por medio de factores Bi, D, Ci
         6) Generar reportes acerca de matrices, sus submatrices y determinantes asociados
     """
+    matrix = None
+
+    def __init__(self,matrix):
+        self.matrix = sympy.Matrix(matrix)
+
     @staticmethod
     def create_symmetric_matrix(orden, arbitrary=True, aleatory=False,\
                                 interval=[0,1], integerEntry=False,\
@@ -29,18 +34,18 @@ class Matrix(scipy.matrix):
                 if i <= j else 'a{0}{1}'.format(j+1, i+1) \
                 for j in range(orden)] for i in range(orden)]
         else:
-            if aleatory:
-                result = scipy.zeros((orden, orden))
+            if aleatory or manualEntry:
+                result = [[0 for j in range(orden)]\
+                            for i in range(orden)]
 
                 for i in range(orden):
                     for j in range(i, orden):
-                        value = interval[0] + (interval[1] - interval[0])*random.random()
+                        if manualEntry:
+                            value = float(raw_input('a{0}{1}: '.format(i+1, j+1)))
+                        else:
+                            value = interval[0] + (interval[1] - interval[0])*random.random()
                         result[i][j] = math.ceil(value) if integerEntry else value
                         result[j][i] = result[i][j]
-            elif manualEntry:
-                result = [[float(raw_input('a{0}{1}: '.format(i+1, j+1)))  \
-                    for j in range(orden)] for i in range(orden)]
-
         return Matrix(result)
 
     def get_congruent_matrix_with_diagonal_one(self):
