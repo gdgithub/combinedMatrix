@@ -13,10 +13,12 @@ class Matrix(sympy.Matrix):
         5) Generar una matriz totalmente positiva por medio de factores Bi, D, Ci
         6) Generar reportes acerca de matrices, sus submatrices y determinantes asociados
     """
-    matrix = None
+    #matrix = None
 
+    """
     def __init__(self,matrix):
         self.matrix = sympy.Matrix(matrix)
+    """
 
     @staticmethod
     def create_symmetric_matrix(orden, arbitrary=True, aleatory=False,\
@@ -92,5 +94,6 @@ class Matrix(sympy.Matrix):
         """
             Devuelve la matriz combinada de la matriz dada 
         """
-        aux = self.matrix.inv()
-        return Matrix.multiply_elementwise(Matrix(self.matrix), Matrix(aux.trasponse()))
+        aux1 = self.inv()
+        aux2 = aux1.trasponse()
+        return Matrix.multiply_elementwise(self, aux2)
