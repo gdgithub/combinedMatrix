@@ -114,3 +114,18 @@ class Matrix(sympy.Matrix):
         return False not in [False not in [y.det() > 0 \
                             for y in self.get_submatrices(x, x)] \
                             for x in range(1, self.rows+1)]
+    
+    @staticmethod
+    def get_matrices_with_different_det(arrayMatrices):
+        """
+            Devuelve, dada una lista de matrices, aquellas sin
+            repetir el determinante
+        """
+        auxMatrix = []
+        auxDet = []
+
+        for m in arrayMatrices:
+            if m.det() not in auxDet:
+                auxDet.append(m.det())
+                auxMatrix.append(m)
+        return auxMatrix
