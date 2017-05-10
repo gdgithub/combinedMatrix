@@ -95,3 +95,9 @@ class Matrix(sympy.Matrix):
             Devuelve la matriz combinada de la matriz dada 
         """
         return Matrix.multiply_elementwise(self, self.inv().T)
+
+    def is_TotallyPositiveMatrix(self):
+        """
+            Devuelve si la matriz es totalmente positiva
+        """
+        return False not in [False not in [y.det() > 0 for y in self.get_submatrices(x,x)] for x in range(1,self.rows+1)]
