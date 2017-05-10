@@ -56,14 +56,14 @@ class Matrix(sympy.Matrix):
             Devuelve una matriz congruente a esta matriz con entradas en la
             diagonal principal iguales a 1
         """
-        auxMatrix = self.matrix.tolist()
+        auxMatrix = self.tolist()
         dim = len(auxMatrix)
 
         for i in range(dim):
             for c in range(dim):
-                auxMatrix[i][c] *= 1/sympy.sqrt(self.matrix.row(i)[i])
+                auxMatrix[i][c] *= 1/sympy.sqrt(self.row(i)[i])
             for r in range(dim):
-                auxMatrix[r][i] *= 1/sympy.sqrt(self.matrix.row(i)[i])
+                auxMatrix[r][i] *= 1/sympy.sqrt(self.row(i)[i])
 
         return Matrix(auxMatrix)
 
@@ -71,8 +71,8 @@ class Matrix(sympy.Matrix):
         """
             Obtiene las submatrices del orden especificado
         """
-        I = list(it.combinations(range(self.matrix.rows), rows))
-        J = list(it.combinations(range(self.matrix.cols), cols))
+        I = list(it.combinations(range(self.rows), rows))
+        J = list(it.combinations(range(self.cols), cols))
 
         indexes = list(it.product(I, J))
 
@@ -83,7 +83,7 @@ class Matrix(sympy.Matrix):
         for pair in indexes:
             for r in pair[0]:
                 for c in pair[1]:
-                    row.append(self.matrix.row(r)[c])
+                    row.append(self.row(r)[c])
                 subMatriz_aux.append(list(row))
                 del row[:]
             subMatrices.append(Matrix(list(subMatriz_aux)))
@@ -94,6 +94,4 @@ class Matrix(sympy.Matrix):
         """
             Devuelve la matriz combinada de la matriz dada 
         """
-        aux1 = self.inv()
-        aux2 = aux1.trasponse()
-        return Matrix.multiply_elementwise(self, aux2)
+        return Matrix.multiply_elementwise(self, self.inv().T)
