@@ -62,6 +62,15 @@ class Matrix(sympy.Matrix):
                         result[j][i] = result[i][j]
         return Matrix(result)
 
+    @staticmethod
+    def diagonalMatrix():
+        """
+            Devuelve una matriz diagonal. Por defecto retorna la identidad.abs
+            Admite un argumento manualEntry para entrada manual y aleatory de 
+            manera aleatoria
+        """
+        pass
+
     def get_congruent_matrix_with_diagonal_one(self):
         """
             Devuelve una matriz congruente a esta matriz con entradas en la
