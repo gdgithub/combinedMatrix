@@ -1,0 +1,391 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\setlist[enumerate]{label*=\arabic*.}
+
+\begin{document}
+\title{Matriz simetrica totalmente positivas de orden 4.}
+\maketitle
+
+
+\begin{enumerate}
+
+\item $\left[\begin{matrix}1 & x_{6} & x_{5} & x_{4}\\x_{6} & 1 & x_{3} & x_{2}\\x_{5} & x_{3} & 1 & x_{1}\\x_{4} & x_{2} & x_{1} & 1\end{matrix}\right]$\\
+
+\begin{enumerate}
+
+\item {\bf Submatrices de orden 1}\\
+
+\begin{enumerate}
+
+
+\item $\displaystyle \left[\begin{matrix}1\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6}\end{matrix}\right]$\\
+
+Det: $x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{5}\end{matrix}\right]$\\
+
+Det: $x_{5}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{4}\end{matrix}\right]$\\
+
+Det: $x_{4}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6}\end{matrix}\right]$\\
+
+Det: $x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{3}\end{matrix}\right]$\\
+
+Det: $x_{3}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{2}\end{matrix}\right]$\\
+
+Det: $x_{2}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{5}\end{matrix}\right]$\\
+
+Det: $x_{5}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{3}\end{matrix}\right]$\\
+
+Det: $x_{3}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1\end{matrix}\right]$\\
+
+Det: $1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{4}\end{matrix}\right]$\\
+
+Det: $x_{4}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{2}\end{matrix}\right]$\\
+
+Det: $x_{2}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1\end{matrix}\right]$\\
+
+Det: $1$\\
+
+\end{enumerate}
+
+\item {\bf Submatrices de orden 2}\\
+
+\begin{enumerate}
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{6}\\x_{6} & 1\end{matrix}\right]$\\
+
+Det: $- x_{6}^{2} + 1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{5}\\x_{6} & x_{3}\end{matrix}\right]$\\
+
+Det: $x_{3} - x_{5} x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{4}\\x_{6} & x_{2}\end{matrix}\right]$\\
+
+Det: $x_{2} - x_{4} x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & x_{5}\\1 & x_{3}\end{matrix}\right]$\\
+
+Det: $x_{3} x_{6} - x_{5}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & x_{4}\\1 & x_{2}\end{matrix}\right]$\\
+
+Det: $x_{2} x_{6} - x_{4}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{5} & x_{4}\\x_{3} & x_{2}\end{matrix}\right]$\\
+
+Det: $x_{2} x_{5} - x_{3} x_{4}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{6}\\x_{5} & x_{3}\end{matrix}\right]$\\
+
+Det: $x_{3} - x_{5} x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{5}\\x_{5} & 1\end{matrix}\right]$\\
+
+Det: $- x_{5}^{2} + 1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{4}\\x_{5} & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} - x_{4} x_{5}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & x_{5}\\x_{3} & 1\end{matrix}\right]$\\
+
+Det: $- x_{3} x_{5} + x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & x_{4}\\x_{3} & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} x_{6} - x_{3} x_{4}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{5} & x_{4}\\1 & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} x_{5} - x_{4}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{6}\\x_{4} & x_{2}\end{matrix}\right]$\\
+
+Det: $x_{2} - x_{4} x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{5}\\x_{4} & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} - x_{4} x_{5}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{4}\\x_{4} & 1\end{matrix}\right]$\\
+
+Det: $- x_{4}^{2} + 1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & x_{5}\\x_{2} & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} x_{6} - x_{2} x_{5}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & x_{4}\\x_{2} & 1\end{matrix}\right]$\\
+
+Det: $- x_{2} x_{4} + x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{5} & x_{4}\\x_{1} & 1\end{matrix}\right]$\\
+
+Det: $- x_{1} x_{4} + x_{5}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & 1\\x_{5} & x_{3}\end{matrix}\right]$\\
+
+Det: $x_{3} x_{6} - x_{5}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & x_{3}\\x_{5} & 1\end{matrix}\right]$\\
+
+Det: $- x_{3} x_{5} + x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & x_{2}\\x_{5} & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} x_{6} - x_{2} x_{5}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{3}\\x_{3} & 1\end{matrix}\right]$\\
+
+Det: $- x_{3}^{2} + 1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{2}\\x_{3} & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} - x_{2} x_{3}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{3} & x_{2}\\1 & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} x_{3} - x_{2}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & 1\\x_{4} & x_{2}\end{matrix}\right]$\\
+
+Det: $x_{2} x_{6} - x_{4}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & x_{3}\\x_{4} & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} x_{6} - x_{3} x_{4}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & x_{2}\\x_{4} & 1\end{matrix}\right]$\\
+
+Det: $- x_{2} x_{4} + x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{3}\\x_{2} & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} - x_{2} x_{3}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{2}\\x_{2} & 1\end{matrix}\right]$\\
+
+Det: $- x_{2}^{2} + 1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{3} & x_{2}\\x_{1} & 1\end{matrix}\right]$\\
+
+Det: $- x_{1} x_{2} + x_{3}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{5} & x_{3}\\x_{4} & x_{2}\end{matrix}\right]$\\
+
+Det: $x_{2} x_{5} - x_{3} x_{4}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{5} & 1\\x_{4} & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} x_{5} - x_{4}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{5} & x_{1}\\x_{4} & 1\end{matrix}\right]$\\
+
+Det: $- x_{1} x_{4} + x_{5}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{3} & 1\\x_{2} & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} x_{3} - x_{2}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{3} & x_{1}\\x_{2} & 1\end{matrix}\right]$\\
+
+Det: $- x_{1} x_{2} + x_{3}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{1}\\x_{1} & 1\end{matrix}\right]$\\
+
+Det: $- x_{1}^{2} + 1$\\
+
+\end{enumerate}
+
+\item {\bf Submatrices de orden 3}\\
+
+\begin{enumerate}
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{6} & x_{5}\\x_{6} & 1 & x_{3}\\x_{5} & x_{3} & 1\end{matrix}\right]$\\
+
+Det: $- x_{3}^{2} + 2 x_{3} x_{5} x_{6} - x_{5}^{2} - x_{6}^{2} + 1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{6} & x_{4}\\x_{6} & 1 & x_{2}\\x_{5} & x_{3} & x_{1}\end{matrix}\right]$\\
+
+Det: $- x_{1} x_{6}^{2} + x_{1} - x_{2} x_{3} + x_{2} x_{5} x_{6} + x_{3} x_{4} x_{6} - x_{4} x_{5}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{5} & x_{4}\\x_{6} & x_{3} & x_{2}\\x_{5} & 1 & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} x_{3} - x_{1} x_{5} x_{6} + x_{2} x_{5}^{2} - x_{2} - x_{3} x_{4} x_{5} + x_{4} x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & x_{5} & x_{4}\\1 & x_{3} & x_{2}\\x_{3} & 1 & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} x_{3} x_{6} - x_{1} x_{5} + x_{2} x_{3} x_{5} - x_{2} x_{6} - x_{3}^{2} x_{4} + x_{4}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{6} & x_{5}\\x_{6} & 1 & x_{3}\\x_{4} & x_{2} & x_{1}\end{matrix}\right]$\\
+
+Det: $- x_{1} x_{6}^{2} + x_{1} - x_{2} x_{3} + x_{2} x_{5} x_{6} + x_{3} x_{4} x_{6} - x_{4} x_{5}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{6} & x_{4}\\x_{6} & 1 & x_{2}\\x_{4} & x_{2} & 1\end{matrix}\right]$\\
+
+Det: $- x_{2}^{2} + 2 x_{2} x_{4} x_{6} - x_{4}^{2} - x_{6}^{2} + 1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{5} & x_{4}\\x_{6} & x_{3} & x_{2}\\x_{4} & x_{1} & 1\end{matrix}\right]$\\
+
+Det: $- x_{1} x_{2} + x_{1} x_{4} x_{6} + x_{2} x_{4} x_{5} - x_{3} x_{4}^{2} + x_{3} - x_{5} x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & x_{5} & x_{4}\\1 & x_{3} & x_{2}\\x_{2} & x_{1} & 1\end{matrix}\right]$\\
+
+Det: $- x_{1} x_{2} x_{6} + x_{1} x_{4} + x_{2}^{2} x_{5} - x_{2} x_{3} x_{4} + x_{3} x_{6} - x_{5}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{6} & x_{5}\\x_{5} & x_{3} & 1\\x_{4} & x_{2} & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} x_{3} - x_{1} x_{5} x_{6} + x_{2} x_{5}^{2} - x_{2} - x_{3} x_{4} x_{5} + x_{4} x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{6} & x_{4}\\x_{5} & x_{3} & x_{1}\\x_{4} & x_{2} & 1\end{matrix}\right]$\\
+
+Det: $- x_{1} x_{2} + x_{1} x_{4} x_{6} + x_{2} x_{4} x_{5} - x_{3} x_{4}^{2} + x_{3} - x_{5} x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{5} & x_{4}\\x_{5} & 1 & x_{1}\\x_{4} & x_{1} & 1\end{matrix}\right]$\\
+
+Det: $- x_{1}^{2} + 2 x_{1} x_{4} x_{5} - x_{4}^{2} - x_{5}^{2} + 1$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & x_{5} & x_{4}\\x_{3} & 1 & x_{1}\\x_{2} & x_{1} & 1\end{matrix}\right]$\\
+
+Det: $- x_{1}^{2} x_{6} + x_{1} x_{2} x_{5} + x_{1} x_{3} x_{4} - x_{2} x_{4} - x_{3} x_{5} + x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & 1 & x_{3}\\x_{5} & x_{3} & 1\\x_{4} & x_{2} & x_{1}\end{matrix}\right]$\\
+
+Det: $x_{1} x_{3} x_{6} - x_{1} x_{5} + x_{2} x_{3} x_{5} - x_{2} x_{6} - x_{3}^{2} x_{4} + x_{4}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & 1 & x_{2}\\x_{5} & x_{3} & x_{1}\\x_{4} & x_{2} & 1\end{matrix}\right]$\\
+
+Det: $- x_{1} x_{2} x_{6} + x_{1} x_{4} + x_{2}^{2} x_{5} - x_{2} x_{3} x_{4} + x_{3} x_{6} - x_{5}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}x_{6} & x_{3} & x_{2}\\x_{5} & 1 & x_{1}\\x_{4} & x_{1} & 1\end{matrix}\right]$\\
+
+Det: $- x_{1}^{2} x_{6} + x_{1} x_{2} x_{5} + x_{1} x_{3} x_{4} - x_{2} x_{4} - x_{3} x_{5} + x_{6}$\\
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{3} & x_{2}\\x_{3} & 1 & x_{1}\\x_{2} & x_{1} & 1\end{matrix}\right]$\\
+
+Det: $- x_{1}^{2} + 2 x_{1} x_{2} x_{3} - x_{2}^{2} - x_{3}^{2} + 1$\\
+
+\end{enumerate}
+
+\item {\bf Submatrices de orden 4}\\
+
+\begin{enumerate}
+
+
+\item $\displaystyle \left[\begin{matrix}1 & x_{6} & x_{5} & x_{4}\\x_{6} & 1 & x_{3} & x_{2}\\x_{5} & x_{3} & 1 & x_{1}\\x_{4} & x_{2} & x_{1} & 1\end{matrix}\right]$\\
+
+Det: $x_{1}^{2} x_{6}^{2} - x_{1}^{2} + 2 x_{1} x_{2} x_{3} - 2 x_{1} x_{2} x_{5} x_{6} - 2 x_{1} x_{3} x_{4} x_{6} + 2 x_{1} x_{4} x_{5} + x_{2}^{2} x_{5}^{2} - x_{2}^{2} - 2 x_{2} x_{3} x_{4} x_{5} + 2 x_{2} x_{4} x_{6} + x_{3}^{2} x_{4}^{2} - x_{3}^{2} + 2 x_{3} x_{5} x_{6} - x_{4}^{2} - x_{5}^{2} - x_{6}^{2} + 1$\\
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{enumerate}
+\end{document}
