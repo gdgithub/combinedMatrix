@@ -21,7 +21,7 @@ class Matrix(sympy.Matrix):
     """
 
     @staticmethod
-    def create_symmetric_matrix(orden, arbitrary=True, aleatory=False,\
+    def create_symmetric_matrix(orden, arbitrary=True, fiedlerMatrix=False, aleatory=False,\
                                 interval=[0,1], integerEntry=False,\
                                 manualEntry=False):
         """
@@ -33,9 +33,20 @@ class Matrix(sympy.Matrix):
         result = []
 
         if arbitrary:
-            result = [['a{0}{1}'.format(i+1, j+1) \
-                if i <= j else 'a{0}{1}'.format(j+1, i+1) \
-                for j in range(orden)] for i in range(orden)]
+            if not fiedlerMatrix:
+                result = [['a{0}{1}'.format(i+1, j+1) \
+                    if i <= j else 'a{0}{1}'.format(j+1, i+1) \
+                    for j in range(orden)] for i in range(orden)]
+            else:
+                num = orden*(orden - 1)/2
+                result = Matrix.create_symmetric_matrix(orden).tolist()
+                i = 0
+                for r in range(orden):
+                    result[r][r] = 1
+                    for c in range(r+1, orden):
+                        result[r][c] = sympy.Symbol('x{0}'.format(num-i))
+                        result[c][r] = result[r][c]
+                        i += 1
         else:
             if aleatory or manualEntry:
                 result = [[0 for j in range(orden)]\
@@ -100,4 +111,6 @@ class Matrix(sympy.Matrix):
         """
             Devuelve si la matriz es totalmente positiva
         """
-        return False not in [False not in [y.det() > 0 for y in self.get_submatrices(x,x)] for x in range(1,self.rows+1)]
+        return False not in [False not in [y.det() > 0 \
+                            for y in self.get_submatrices(x, x)] \
+                            for x in range(1, self.rows+1)]
