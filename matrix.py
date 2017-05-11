@@ -63,9 +63,9 @@ class Matrix(sympy.Matrix):
         return Matrix(result)
 
     @staticmethod
-    def diagonalMatrix():
+    def create_diagonal_matrix():
         """
-            Devuelve una matriz diagonal. Por defecto retorna la identidad.abs
+            Devuelve una matriz diagonal. Por defecto retorna la identidad.
             Admite un argumento manualEntry para entrada manual y aleatory de 
             manera aleatoria
         """
