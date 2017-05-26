@@ -2,6 +2,7 @@ import sympy
 import random
 import math
 import itertools as it
+import copy
 
 class Matrix(sympy.Matrix):
     """
