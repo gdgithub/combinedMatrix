@@ -151,3 +151,68 @@ class Matrix(sympy.Matrix):
                 auxDet.append(m.det())
                 auxMatrix.append(m)
         return auxMatrix
+
+@staticmethod
+def genLowerBiDiagonalMatrix(o, rango=[0,1], manual=False):
+    result = []
+    for r in range(1,o+1):
+        row_aux = []
+        for c in range(1,o+1):
+            if c > r:
+                row_aux.append(0)
+            elif c < r:
+                row_aux.append(0)
+            else:
+                row_aux.append(1)
+
+        result.append(row_aux)
+        del row_aux
+
+    results = [copy.deepcopy(result) for x in range(1,o)]
+    aux = {}
+
+    for m in range(1,o):
+        for k in range(m,o):        
+            results[m-1][k][k-1] = rango[0] + (rango[1]-rango[0])*random.random() if manual==False else int(raw_input('B{0} -> a{1}{2}: '.format(o-m, k+1,k)))
+        aux['B{0}'.format(m)]= sp.Matrix(results[m-1])
+
+    #return aux #[sp.Matrix(m) for m in results]
+    f = [sp.Matrix(m) for m in results] #reversed([sp.Matrix(m) for m in results])
+    f.reverse()
+    return f
+
+@staticmethod
+def genUpperBiDiagonalMatrix(o, rango=[0,1], manual=False):
+    result = []
+    for r in range(1,o+1):
+        row_aux = []
+        for c in range(1,o+1):
+            if c > r:
+                row_aux.append(0)
+            elif c < r:
+                row_aux.append(0)
+            else:
+                row_aux.append(1)
+
+        result.append(row_aux)
+        del row_aux
+
+    results = [copy.deepcopy(result) for x in range(1,o)]
+    aux = {}
+
+    for m in range(1,o):
+        for k in range(m,o):        
+            results[m-1][k-1][k] = rango[0] + (rango[1]-rango[0])*random.random() if manual==False else int(raw_input('C{0} -> a{1}{2}: '.format(o-m, k,k+1)))
+        aux['C{0}'.format(o-m)]= sp.Matrix(results[m-1])
+
+    #return aux #[sp.Matrix(m) for m in results]
+    return [sp.Matrix(m) for m in results]
+
+@staticmethod
+def genTotallyPositiveMatriz(o,manual=False):
+    B = genLowerBiDiagonalMatrix(o,manual=manual)
+    D = genDiagonalMatrix(o,manual=manual)
+    C = genUpperBiDiagonalMatrix(o,manual=manual)
+
+    aux = B + [D] + C
+    return reduce((lambda x,y: x*y),aux)
