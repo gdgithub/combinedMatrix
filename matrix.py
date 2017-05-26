@@ -63,13 +63,26 @@ class Matrix(sympy.Matrix):
         return Matrix(result)
 
     @staticmethod
-    def create_diagonal_matrix():
+    def create_diagonal_matrix(orden, manualEntry=False, aleatory=False):
         """
             Devuelve una matriz diagonal. Por defecto retorna la identidad.
             Admite un argumento manualEntry para entrada manual y aleatory de 
             manera aleatoria
         """
-        pass
+        aux = Matrix.create_symmetric_matrix(orden).tolist()
+    
+        for i in range(orden):
+            for j in range(orden):
+                if i == j:
+                    if manualEntry:
+                        aux[i][j] = float(raw_input('a{0}{1}: '.format(i+1, j+1)))
+                    elif aleatory:
+                        aux[i][j] = random.random()
+                    else:
+                        aux[i][j] = 1
+                else:
+                    aux[i][j] = 0 
+        return Matrix(aux)
 
     def get_congruent_matrix_with_diagonal_one(self):
         """
