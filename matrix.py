@@ -213,7 +213,7 @@ class Matrix(sympy.Matrix):
     def genTotallyPositiveMatrix(o,manual=False):
         aleatory = False if manual else True
         B = Matrix.genLowerBiDiagonalMatrix(o,manual=manual)
-        D = Matrix.create_diagonal_matrix(o,manual=manual, aleatory=aleatory)
+        D = Matrix.create_diagonal_matrix(o,manualEntry=manual, aleatory=aleatory)
         C = Matrix.genUpperBiDiagonalMatrix(o,manual=manual)
 
         aux = B + [D] + C
