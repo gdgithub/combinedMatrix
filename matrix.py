@@ -174,10 +174,10 @@ class Matrix(sympy.Matrix):
         for m in range(1,o):
             for k in range(m,o):        
                 results[m-1][k][k-1] = rango[0] + (rango[1]-rango[0])*random.random() if manual==False else int(raw_input('B{0} -> a{1}{2}: '.format(o-m, k+1,k)))
-            aux['B{0}'.format(m)]= sp.Matrix(results[m-1])
+            aux['B{0}'.format(m)]= Matrix(results[m-1])
 
         #return aux #[sp.Matrix(m) for m in results]
-        f = [sp.Matrix(m) for m in results] #reversed([sp.Matrix(m) for m in results])
+        f = [Matrix(m) for m in results] #reversed([sp.Matrix(m) for m in results])
         f.reverse()
         return f
 
@@ -203,16 +203,17 @@ class Matrix(sympy.Matrix):
         for m in range(1,o):
             for k in range(m,o):        
                 results[m-1][k-1][k] = rango[0] + (rango[1]-rango[0])*random.random() if manual==False else int(raw_input('C{0} -> a{1}{2}: '.format(o-m, k,k+1)))
-            aux['C{0}'.format(o-m)]= sp.Matrix(results[m-1])
+            aux['C{0}'.format(o-m)]= Matrix(results[m-1])
 
         #return aux #[sp.Matrix(m) for m in results]
-        return [sp.Matrix(m) for m in results]
+        return [Matrix(m) for m in results]
 
     @staticmethod
-    def genTotallyPositiveMatriz(o,manual=False):
-        B = genLowerBiDiagonalMatrix(o,manual=manual)
-        D = genDiagonalMatrix(o,manual=manual)
-        C = genUpperBiDiagonalMatrix(o,manual=manual)
+    def genTotallyPositiveMatrix(o,manual=False):
+        aleatory = False if manual else True
+        B = Matrix.genLowerBiDiagonalMatrix(o,manual=manual)
+        D = Matrix.create_diagonal_matrix(o,manual=manual, aleatory=aleatory)
+        C = Matrix.genUpperBiDiagonalMatrix(o,manual=manual)
 
         aux = B + [D] + C
         return reduce((lambda x,y: x*y),aux)
