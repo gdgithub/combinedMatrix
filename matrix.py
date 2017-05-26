@@ -124,6 +124,14 @@ class Matrix(sympy.Matrix):
             del subMatriz_aux[:]
         return subMatrices
 
+    def get_submatrices_summary(self, orden):
+        """
+            Obtiene un arreglo de diccionarios formados por
+            un matriz y un determinante. 
+        """
+        submatrices = self.get_submatrices(orden, orden)
+        return [{'submatrix': m, 'det': m.det()} for m in submatrices]
+
     def combined_matrix(self):
         """
             Devuelve la matriz combinada de la matriz dada 
