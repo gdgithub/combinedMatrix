@@ -79,7 +79,7 @@ class Matrix(sympy.Matrix):
             for j in range(orden):
                 if i == j:
                     if manualEntry:
-                        value = float(raw_input('a{0}{1}: '.format(i+1, j+1)))
+                        value = float(raw_input('a{0}{1}: '.format(i+1, j+1)))q
                     elif aleatory:
                         value = interval[0] + (interval[1] - interval[0])*random.random()
                     else:
@@ -166,11 +166,18 @@ class Matrix(sympy.Matrix):
         return auxMatrix
 
     @staticmethod
-    def genLowerBiDiagonalMatrix(o, rango=[0,1], manual=False):
+    def create_lower_bidiagonal_matrix(orden, interval=[0,1], manualEntry=False\
+                                        integerEntry=False):
+        """
+            Retorna la matriz bidiagonal inferior del orden especificado,
+            la cual es requerida para contruir una matriz totalmente positiva.
+            Entre los argumentos tenemos la posibilidad tener entradas aleatorias, 
+            por defecto. Ademas de poder ingresarlas manualmente.            
+        """
         result = []
-        for r in range(1,o+1):
+        for r in range(1,orden+1):
             row_aux = []
-            for c in range(1,o+1):
+            for c in range(1,orden+1):
                 if c > r:
                     row_aux.append(0)
                 elif c < r:
@@ -181,12 +188,13 @@ class Matrix(sympy.Matrix):
             result.append(row_aux)
             del row_aux
 
-        results = [copy.deepcopy(result) for x in range(1,o)]
+        results = [copy.deepcopy(result) for x in range(1,orden)]
         aux = {}
 
-        for m in range(1,o):
-            for k in range(m,o):        
-                results[m-1][k][k-1] = rango[0] + (rango[1]-rango[0])*random.random() if manual==False else int(raw_input('B{0} -> a{1}{2}: '.format(o-m, k+1,k)))
+        for m in range(1,orden):
+            for k in range(m,orden):     
+                value =  interval[0] + (interval[1]-interval[0])*random.random() if manualEntry==False else float(raw_input('B{0} -> a{1}{2}: '.format(orden-m, k+1,k)))
+                results[m-1][k][k-1] = math.ceil(value) if integerEntry else value
             aux['B{0}'.format(m)]= Matrix(results[m-1])
 
         #return aux #[sp.Matrix(m) for m in results]
