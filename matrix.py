@@ -175,6 +175,13 @@ class Matrix(sympy.Matrix):
                 auxMatrix.append(m)
         return auxMatrix
 
+    def get_diagonal(self, pos):
+        """
+            Retorna los elementos de la diagonal en la posicion pos
+        """
+        aux = self.tolist()
+        return [aux[i][i+pos] for i in range(len(aux) - pos)]
+
     @staticmethod
     def create_lower_bidiagonal_matrix(orden, interval=[0, 1], manualEntry=False,
                                        integerEntry=False):
@@ -270,6 +277,18 @@ class Matrix(sympy.Matrix):
 
     @staticmethod
     def create_totally_positive_matrix_with_diagonal_one(orden=3):
-        auxMatrix = Matrix.create_diagonal_matrix(orden)
-        freeEntries = [(i,j) for j in range(i+2, orden) for i in range(orden - 2)]
-        fixedEntries = [(i,i+1) for i in range(orden - 1)]
+        auxMatrix = Matrix.create_diagonal_matrix(orden).tolist()
+        fixedEntries = [(i,j) for i in range(orden - 2) for j in range(i+2, orden)]
+        freeEntries = [(i,i+1) for i in range(orden - 1)]
+
+        for entry in freeEntries:
+            i, j = entry
+            auxMatrix[i][j] = random.random()
+            auxMatrix[j][i] = auxMatrix[i][j]
+
+        a12 = auxMatrix[0][1]
+        a23 = auxMatrix[1][2]
+        auxMatrix[0][2] = a12*a23*random.random()
+        auxMatrix[2][0] = auxMatrix[0][2]
+
+        return Matrix(auxMatrix)
