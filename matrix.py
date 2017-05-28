@@ -267,3 +267,9 @@ class Matrix(sympy.Matrix):
 
         aux = B + [D] + C
         return reduce((lambda x, y: x * y), aux)
+
+    @staticmethod
+    def create_totally_positive_matrix_with_diagonal_one(orden=3):
+        auxMatrix = Matrix.create_diagonal_matrix(orden)
+        freeEntries = [(i,j) for j in range(i+2, orden) for i in range(orden - 2)]
+        fixedEntries = [(i,i+1) for i in range(orden - 1)]
