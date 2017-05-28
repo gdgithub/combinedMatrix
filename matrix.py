@@ -2,7 +2,7 @@
 Libreria Matrix la cual contiene la clase Matrix. Esta permite interactuar con
 las matrices de Sympy y extiende sus metodos.abs
 
-Autor: Ivan Gil
+Autor: Ivan Gil Cruz
 """
 import sympy
 import random
