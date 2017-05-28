@@ -1,3 +1,9 @@
+"""
+Libreria Matrix la cual contiene la clase Matrix. Esta permite interactuar con
+las matrices de Sympy y extiende sus metodos.abs
+
+Autor: Ivan Gil
+"""
 import sympy
 import random
 import math
