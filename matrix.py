@@ -10,6 +10,7 @@ import math
 import itertools as it
 import copy
 
+
 class Matrix(sympy.Matrix):
     """
         Clase heredada de sympy.Matrix la cual permite realizar las tareas tales como:
@@ -28,8 +29,8 @@ class Matrix(sympy.Matrix):
     """
 
     @staticmethod
-    def create_symmetric_matrix(orden, arbitrary=True, fiedlerMatrix=False, aleatory=False,\
-                                interval=[0,1], integerEntry=False,\
+    def create_symmetric_matrix(orden, arbitrary=True, fiedlerMatrix=False, aleatory=False,
+                                interval=[0, 1], integerEntry=False,
                                 manualEntry=False):
         """
             Crea una matriz simetrica de orden n de la manera siguiente:
@@ -41,37 +42,40 @@ class Matrix(sympy.Matrix):
 
         if arbitrary:
             if not fiedlerMatrix:
-                result = [['a{0}{1}'.format(i+1, j+1) \
-                    if i <= j else 'a{0}{1}'.format(j+1, i+1) \
-                    for j in range(orden)] for i in range(orden)]
+                result = [['a{0}{1}'.format(i + 1, j + 1)
+                           if i <= j else 'a{0}{1}'.format(j + 1, i + 1)
+                           for j in range(orden)] for i in range(orden)]
             else:
-                num = orden*(orden - 1)/2
+                num = orden * (orden - 1) / 2
                 result = Matrix.create_symmetric_matrix(orden).tolist()
                 i = 0
                 for r in range(orden):
                     result[r][r] = 1
-                    for c in range(r+1, orden):
-                        result[r][c] = sympy.Symbol('x{0}'.format(num-i))
+                    for c in range(r + 1, orden):
+                        result[r][c] = sympy.Symbol('x{0}'.format(num - i))
                         result[c][r] = result[r][c]
                         i += 1
         else:
             if aleatory or manualEntry:
-                result = [[0 for j in range(orden)]\
-                            for i in range(orden)]
+                result = [[0 for j in range(orden)]
+                          for i in range(orden)]
 
                 for i in range(orden):
                     for j in range(i, orden):
                         if manualEntry:
-                            value = float(raw_input('a{0}{1}: '.format(i+1, j+1)))
+                            value = float(
+                                raw_input('a{0}{1}: '.format(i + 1, j + 1)))
                         else:
-                            value = interval[0] + (interval[1] - interval[0])*random.random()
-                        result[i][j] = math.ceil(value) if integerEntry else value
+                            value = interval[
+                                0] + (interval[1] - interval[0]) * random.random()
+                        result[i][j] = math.ceil(
+                            value) if integerEntry else value
                         result[j][i] = result[i][j]
         return Matrix(result)
 
     @staticmethod
-    def create_diagonal_matrix(orden, manualEntry=False, \
-                            aleatory=False, interval=[0,1], integerEntry=False):
+    def create_diagonal_matrix(orden, manualEntry=False,
+                                interval=[0, 1], integerEntry=False, identity=True):
         """
             Devuelve una matriz diagonal. Por defecto retorna la identidad.
             Admite un argumento manualEntry para entrada manual y aleatory de 
@@ -80,19 +84,19 @@ class Matrix(sympy.Matrix):
             establece entradas enteras en la matriz.
         """
         aux = Matrix.create_symmetric_matrix(orden).tolist()
-    
+
         for i in range(orden):
             for j in range(orden):
                 if i == j:
-                    if manualEntry:
-                        value = float(raw_input('a{0}{1}: '.format(i+1, j+1)))q
-                    elif aleatory:
-                        value = interval[0] + (interval[1] - interval[0])*random.random()
-                    else:
+                    if identity:
                         value = 1
+                    elif manualEntry:
+                        value = float(raw_input('a{0}{1}: '.format(i + 1, j + 1)))
+                    else:
+                        value = interval[0] + (interval[1] - interval[0]) * random.random()
                     aux[i][j] = math.ceil(value) if integerEntry else float(value)
                 else:
-                    aux[i][j] = 0 
+                    aux[i][j] = 0
         return Matrix(aux)
 
     def get_congruent_matrix_with_diagonal_one(self):
@@ -105,9 +109,9 @@ class Matrix(sympy.Matrix):
 
         for i in range(dim):
             for c in range(dim):
-                auxMatrix[i][c] *= 1/sympy.sqrt(self.row(i)[i])
+                auxMatrix[i][c] *= 1 / sympy.sqrt(self.row(i)[i])
             for r in range(dim):
-                auxMatrix[r][i] *= 1/sympy.sqrt(self.row(i)[i])
+                auxMatrix[r][i] *= 1 / sympy.sqrt(self.row(i)[i])
 
         return Matrix(auxMatrix)
 
@@ -152,10 +156,10 @@ class Matrix(sympy.Matrix):
         """
             Devuelve si la matriz es totalmente positiva
         """
-        return False not in [False not in [y.det() > 0 \
-                            for y in self.get_submatrices(x, x)] \
-                            for x in range(1, self.rows+1)]
-    
+        return False not in [False not in [y.det() > 0
+                                           for y in self.get_submatrices(x, x)]
+                             for x in range(1, self.rows + 1)]
+
     @staticmethod
     def get_matrices_with_different_det(arrayMatrices):
         """
@@ -172,8 +176,8 @@ class Matrix(sympy.Matrix):
         return auxMatrix
 
     @staticmethod
-    def create_lower_bidiagonal_matrix(orden, interval=[0,1], manualEntry=False\
-                                        integerEntry=False):
+    def create_lower_bidiagonal_matrix(orden, interval=[0, 1], manualEntry=False,
+                                       integerEntry=False):
         """
             Retorna la matriz bidiagonal inferior del orden especificado,
             la cual es requerida para contruir una matriz totalmente positiva.
@@ -181,9 +185,9 @@ class Matrix(sympy.Matrix):
             por defecto. Ademas de poder ingresarlas manualmente.            
         """
         result = []
-        for r in range(1,orden+1):
+        for r in range(1, orden + 1):
             row_aux = []
-            for c in range(1,orden+1):
+            for c in range(1, orden + 1):
                 if c > r:
                     row_aux.append(0)
                 elif c < r:
@@ -194,26 +198,36 @@ class Matrix(sympy.Matrix):
             result.append(row_aux)
             del row_aux
 
-        results = [copy.deepcopy(result) for x in range(1,orden)]
+        results = [copy.deepcopy(result) for x in range(1, orden)]
         aux = {}
 
-        for m in range(1,orden):
-            for k in range(m,orden):     
-                value =  interval[0] + (interval[1]-interval[0])*random.random() if manualEntry==False else float(raw_input('B{0} -> a{1}{2}: '.format(orden-m, k+1,k)))
-                results[m-1][k][k-1] = math.ceil(value) if integerEntry else value
-            aux['B{0}'.format(m)]= Matrix(results[m-1])
+        for m in range(1, orden):
+            for k in range(m, orden):
+                value = interval[0] + (interval[1] - interval[0]) * random.random(
+                ) if manualEntry == False else float(raw_input('B{0} -> a{1}{2}: '.format(orden - m, k + 1, k)))
+                results[m - 1][k][k -
+                                  1] = math.ceil(value) if integerEntry else value
+            aux['B{0}'.format(m)] = Matrix(results[m - 1])
 
-        #return aux #[sp.Matrix(m) for m in results]
-        f = [Matrix(m) for m in results] #reversed([sp.Matrix(m) for m in results])
+        # return aux #[sp.Matrix(m) for m in results]
+        # reversed([sp.Matrix(m) for m in results])
+        f = [Matrix(m) for m in results]
         f.reverse()
         return f
 
     @staticmethod
-    def genUpperBiDiagonalMatrix(o, rango=[0,1], manual=False):
+    def create_upper_bidiagonal_matrix(orden, interval=[0, 1], manualEntry=False,
+                                integerEntry=False):
+        """
+            Retorna la matriz bidiagonal superior del orden especificado,
+            la cual es requerida para contruir una matriz totalmente positiva.
+            Entre los argumentos tenemos la posibilidad tener entradas aleatorias, 
+            por defecto. Ademas de poder ingresarlas manualmente.            
+        """
         result = []
-        for r in range(1,o+1):
+        for r in range(1, orden + 1):
             row_aux = []
-            for c in range(1,o+1):
+            for c in range(1, orden + 1):
                 if c > r:
                     row_aux.append(0)
                 elif c < r:
@@ -224,23 +238,27 @@ class Matrix(sympy.Matrix):
             result.append(row_aux)
             del row_aux
 
-        results = [copy.deepcopy(result) for x in range(1,o)]
+        results = [copy.deepcopy(result) for x in range(1, orden)]
         aux = {}
 
-        for m in range(1,o):
-            for k in range(m,o):        
-                results[m-1][k-1][k] = rango[0] + (rango[1]-rango[0])*random.random() if manual==False else int(raw_input('C{0} -> a{1}{2}: '.format(o-m, k,k+1)))
-            aux['C{0}'.format(o-m)]= Matrix(results[m-1])
+        for m in range(1, orden):
+            for k in range(m, orden):
+                value = interval[0] + (interval[1] - interval[0]) * random.random() if manualEntry == False else float(raw_input('C{0} -> a{1}{2}: '.format(orden - m, k, k + 1)))
+                results[m - 1][k - 1][k] = math.ceil(value) if integerEntry else value
+            aux['C{0}'.format(orden - m)] = Matrix(results[m - 1])
 
-        #return aux #[sp.Matrix(m) for m in results]
+        # return aux #[sp.Matrix(m) for m in results]
         return [Matrix(m) for m in results]
 
     @staticmethod
-    def genTotallyPositiveMatrix(o,manual=False):
-        aleatory = False if manual else True
-        B = Matrix.genLowerBiDiagonalMatrix(o,manual=manual)
-        D = Matrix.create_diagonal_matrix(o,manualEntry=manual, aleatory=aleatory)
-        C = Matrix.genUpperBiDiagonalMatrix(o,manual=manual)
+    def create_totally_positive_matrix(orden, interval=[0, 1], manualEntry=False, integerEntry=False, symmetric=False):
+        """
+            Retorna una matriz combinada construida por medio de factores matriciales 
+            bidiagonales.
+        """
+        B = Matrix.create_lower_bidiagonal_matrix(orden, interval=interval, manualEntry=manualEntry, integerEntry=integerEntry)
+        D = Matrix.create_diagonal_matrix(orden, manualEntry=manualEntry, interval=interval, integerEntry=integerEntry, identity=False)
+        C = Matrix.create_upper_bidiagonal_matrix(orden, interval=interval, manualEntry=manualEntry, integerEntry=integerEntry)
 
         aux = B + [D] + C
-        return reduce((lambda x,y: x*y),aux)
+        return reduce((lambda x, y: x * y), aux)
