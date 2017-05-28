@@ -91,7 +91,7 @@ class Matrix(sympy.Matrix):
                     if identity:
                         value = 1
                     elif manualEntry:
-                        value = float(raw_input('a{0}{1}: '.format(i + 1, j + 1)))
+                        value = float(raw_input('D --> a{0}{1}: '.format(i + 1, j + 1)))
                     else:
                         value = interval[0] + (interval[1] - interval[0]) * random.random()
                     aux[i][j] = math.ceil(value) if integerEntry else float(value)
@@ -251,14 +251,19 @@ class Matrix(sympy.Matrix):
         return [Matrix(m) for m in results]
 
     @staticmethod
-    def create_totally_positive_matrix(orden, interval=[0, 1], manualEntry=False, integerEntry=False, symmetric=False):
+    def create_totally_positive_matrix(orden, interval=[0, 1], manualEntry=False, 
+                            integerEntry=False, symmetric=False):
         """
             Retorna una matriz combinada construida por medio de factores matriciales 
             bidiagonales.
         """
         B = Matrix.create_lower_bidiagonal_matrix(orden, interval=interval, manualEntry=manualEntry, integerEntry=integerEntry)
         D = Matrix.create_diagonal_matrix(orden, manualEntry=manualEntry, interval=interval, integerEntry=integerEntry, identity=False)
-        C = Matrix.create_upper_bidiagonal_matrix(orden, interval=interval, manualEntry=manualEntry, integerEntry=integerEntry)
+        if symmetric:
+            C = [x.T for x in B]
+            C.reverse()
+        else:
+            C = Matrix.create_upper_bidiagonal_matrix(orden, interval=interval, manualEntry=manualEntry, integerEntry=integerEntry)
 
         aux = B + [D] + C
         return reduce((lambda x, y: x * y), aux)
