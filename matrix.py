@@ -152,7 +152,7 @@ class Matrix(sympy.Matrix):
         """
         return Matrix.multiply_elementwise(self, self.inv().T)
 
-    def is_TotallyPositiveMatrix(self):
+    def is_totally_positive_matrix(self):
         """
             Devuelve si la matriz es totalmente positiva
         """
