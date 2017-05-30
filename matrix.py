@@ -175,13 +175,23 @@ class Matrix(sympy.Matrix):
                 auxMatrix.append(m)
         return auxMatrix
 
-    def get_diagonal(self, pos):
+    @staticmethod
+    def get_diagonals_entries(orden, pos):
         """
             Retorna los elementos de la diagonal en la posicion pos
         """
-        aux = self.tolist()
-        return [aux[i][i+pos] for i in range(len(aux) - pos)]
+        return [(i, i+pos) for i in range(orden - pos)]
 
+    @staticmethod
+    def get_new_entry_fiedler_matrix(aux, pos):
+        i, j = pos
+        a11 = aux[i][j-1]
+        a12 = aux[i][j]
+        a21 = aux[i+1][j-1]
+        a22 = aux[i+1][j]
+
+        return random.random()*(a11*a22)/a21
+    
     @staticmethod
     def create_lower_bidiagonal_matrix(orden, interval=[0, 1], manualEntry=False,
                                        integerEntry=False):
@@ -286,9 +296,11 @@ class Matrix(sympy.Matrix):
             auxMatrix[i][j] = random.random()
             auxMatrix[j][i] = auxMatrix[i][j]
 
-        a12 = auxMatrix[0][1]
-        a23 = auxMatrix[1][2]
-        auxMatrix[0][2] = a12*a23*random.random()
-        auxMatrix[2][0] = auxMatrix[0][2]
+        for i in range(2, orden):
+            for pos in Matrix.get_diagonals_entries(orden, i):
+                i, j = pos
+                auxMatrix[i][j] = Matrix.get_new_entry_fiedler_matrix(auxMatrix, pos)
+                auxMatrix[j][i] = auxMatrix[i][j]
+        tmp = Matrix(auxMatrix)
 
-        return Matrix(auxMatrix)
+        return tmp if tmp.det() > 0 else Matrix.create_totally_positive_matrix_with_diagonal_one(orden)
