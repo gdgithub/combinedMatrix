@@ -147,6 +147,21 @@ class Matrix(sympy.Matrix):
         submatrices = self.get_submatrices(orden, orden)
         return [{'submatrix': m, 'det': m.det()} for m in submatrices]
 
+    @staticmethod
+    def different_element_in_array_of_dict(array, key):
+        """
+            Dada una lista de diccionarios y una clave especifica.abs
+            Se retorna una lista de diccionarios que no repite la clave
+            dada.
+        """
+        keyAux = []
+        result = []
+        for d in array:
+            if d[key] not in keyAux:
+                keyAux.append(d[key])
+                result.append(d)
+        return result
+
     def combined_matrix(self):
         """
             Devuelve la matriz combinada de la matriz dada 
