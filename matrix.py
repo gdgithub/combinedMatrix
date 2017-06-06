@@ -9,6 +9,7 @@ import random
 import math
 import itertools as it
 import copy
+import reports
 
 
 class Matrix(sympy.Matrix):
@@ -269,7 +270,7 @@ class Matrix(sympy.Matrix):
 
     @staticmethod
     def create_totally_positive_matrix(orden, interval=[0, 1], manualEntry=False, 
-                            integerEntry=False, symmetric=False):
+                            integerEntry=False, symmetric=False, report=False):
         """
             Retorna una matriz combinada construida por medio de factores matriciales 
             bidiagonales.
@@ -281,9 +282,11 @@ class Matrix(sympy.Matrix):
             C.reverse()
         else:
             C = Matrix.create_upper_bidiagonal_matrix(orden, interval=interval, manualEntry=manualEntry, integerEntry=integerEntry)
-
+        
         aux = B + [D] + C
-        return reduce((lambda x, y: x * y), aux)
+        prod = reduce((lambda x, y: x * y), aux)
+
+        return {'product': prod, 'factors': aux}
 
     @staticmethod
     def create_totally_positive_matrix_with_diagonal_one(orden=3):
