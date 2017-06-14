@@ -139,13 +139,37 @@ class Matrix(sympy.Matrix):
             del subMatriz_aux[:]
         return subMatrices
 
-    def get_submatrices_summary(self, orden):
+    def get_submatrices_summary(self, orden, latex=False):
         """
             Obtiene un arreglo de diccionarios formados por
-            un matriz y un determinante. 
+            un matriz cuadrada y un determinante. 
         """
         submatrices = self.get_submatrices(orden, orden)
-        return [{'submatrix': m, 'det': m.det()} for m in submatrices]
+        if latex:
+            return [{'submatrix': sympy.latex(m), 'det': sympy.latex(m.det())} for m in submatrices]
+        else:
+            return [{'submatrix': m, 'det': m.det()} for m in submatrices]
+
+    def get_all_submatrices_summary(self, symmetric=False, report=False):
+        """
+            Devuelve todas las submatrices de una matriz cuadrada
+            junto a sus determinantes
+        """
+        orden = self.rows
+        result = {'matrix': self, 'allsubmatrices': [{'orden': x, 
+                    'submatrices': Matrix.different_element_in_array_of_dict(self.get_submatrices_summary(x), 'det') 
+                                    if symmetric else 
+                                        self.get_submatrices_summary(x)} 
+                                    for x in range(1, orden+1)]}
+        if report:
+            dictMatrixInfo = {'matrix': sympy.latex(self), 'allsubmatrices': [{'orden': x, 
+                    'submatrices': Matrix.different_element_in_array_of_dict(self.get_submatrices_summary(x, latex=True), 'det') 
+                                    if symmetric else 
+                                        self.get_submatrices_summary(x, latex=True)} 
+                                    for x in range(1, orden+1)]}
+            reports.sub_matrices(orden, dictMatrixInfo)
+
+        return result 
 
     @staticmethod
     def different_element_in_array_of_dict(array, key):
